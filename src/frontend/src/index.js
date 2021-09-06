@@ -2,14 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import LineChart from './LineChart';
 import MapContainer from "./map/Map"
+import Header from './Header';
 import reportWebVitals from './reportWebVitals';
 
+const domContainer = document.querySelector('#app');
+
 ReactDOM.render(
-  <React.StrictMode>
+<div>
+        <React.StrictMode>
+            <Header />
     <App />
-    <MapContainer />
-  </React.StrictMode>,
+            <MapContainer />
+            
+        React.createElement(ApexChart), domContainer   
+        </React.StrictMode>
+        
+</div>,
   document.getElementById('root')
 );
 
