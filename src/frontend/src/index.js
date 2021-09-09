@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import MapContainer from "./map/Map"
-import reportWebVitals from './reportWebVitals';
+import MapContainer from "./mapComponent/Map"
+import SliderContainer from "./sliderComponent/slider"
+import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <MapContainer />
+    <SliderContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );

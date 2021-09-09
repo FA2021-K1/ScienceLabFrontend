@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import './map.css'
 
 const mapStyles = {
+  position: "relative",
+  left: '20px',
   width: '60%',
   height: '60%'
 };
@@ -47,16 +50,22 @@ export class MapContainer extends Component {
         <Marker
           name={'Bouy 1'}
           position={{lat: 46.743, lng: 11.4451}}
+          totalSuspendedSolids={1032}
+          totalDissolvedSolids={320}
           onClick={this.onMarkerClick}
         />
         <Marker
           name={'Bouy 2'}
           position={{lat: 46.7426, lng: 11.4471}}
+          totalSuspendedSolids={364}
+          totalDissolvedSolids={927}
           onClick={this.onMarkerClick}
         />
         <Marker
           name={'Bouy 3'}
           position={{lat: 46.7407, lng: 11.442}}
+          totalSuspendedSolids={2808}
+          totalDissolvedSolids={203}
           onClick={this.onMarkerClick}
         />
         <InfoWindow
@@ -64,8 +73,13 @@ export class MapContainer extends Component {
           visible={this.state.showingInfoWindow}
           onClose={this.close}
         >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
+          <div class="info"> 
+            <h4>{'Total Suspended Solids'}</h4>
+            <p>{this.state.selectedPlace.totalSuspendedSolids + ' NTU'}</p>
+          </div>
+          <div class="info"> 
+            <h4>{'Total Dissolved Solids'}</h4>
+            <p>{this.state.selectedPlace.totalDissolvedSolids + ' ppm'}</p>
           </div>
         </InfoWindow>
       </Map>
@@ -74,5 +88,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'YOUR_API_TOKEN'
+  apiKey: 'AIzaSyC7gt7AQzDXUmsOkAbNaQA01UVe65kc9AQ'
 })(MapContainer);
