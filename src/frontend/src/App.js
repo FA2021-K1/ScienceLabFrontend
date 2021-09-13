@@ -2,16 +2,15 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import { Button } from '@material-ui/core';
-
+const reactStyles = {
+  position: "relative",
+  left: '20px',
+  width: '60%',
+  height: '60%'
+};
 
 function App() {
   const [data, setData] = React.useState(null);
-
-
-    const sayHello = () => {
-        console.log("hello");
-    }
 
   React.useEffect(() => {
     fetch("/api")
@@ -19,19 +18,14 @@ function App() {
       .then((data) => setData(data.message));
   }, []);
 
-
-
-
   return (
-    <div className="App">
+    <div className="App" style={reactStyles}>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-              <p>{!data ? "Loading..." : data}</p>
-              <Button color="primary" onClick={sayHello()} >Hello World</Button>;
+        <p>{!data ? "Loading..." : data}</p>
       </header>
     </div>
   );
 }
-
 
 export default App;

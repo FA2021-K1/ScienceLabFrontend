@@ -2,24 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import LineChart from './LineChart';
-import MapContainer from "./map/Map"
-import Header from './Header';
-import reportWebVitals from './reportWebVitals';
-
-const domContainer = document.querySelector('#app');
+import MapContainer from "./mapComponent/Map"
+import SliderContainer from "./sliderComponent/slider"
+import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
-<div>
-        <React.StrictMode>
-            <Header />
+  <React.StrictMode>
     <App />
-            <MapContainer />
-            
-        React.createElement(ApexChart), domContainer   
-        </React.StrictMode>
-        
-</div>,
+    <MapContainer />
+    <SliderContainer />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
