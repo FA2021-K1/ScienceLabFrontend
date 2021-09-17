@@ -70,7 +70,7 @@ class SliderContainer extends Component {
     return (
       <div style={{
         position: "relative",
-        top: "560px"
+        top: "600px"
       }}>
         {this.renderDateTime(selected, "Selected")}
         {this.renderDateTime(updated, "Updated")}

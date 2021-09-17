@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import ReactApexCharts from 'react-apexcharts'
 import Chart from "react-apexcharts";
 
+const chartStyle = {
+    position: "relative",
+    top: '600px',
+    width: "70%"
+};
 
 class LineChart extends Component {
     constructor(props) {
@@ -11,11 +16,11 @@ class LineChart extends Component {
 
             series: [
                 {
-                    name: "High - 2013",
+                    name: "Suspended solids",
                     data: [28, 29, 33, 36, 32, 32, 33]
                 },
                 {
-                    name: "Low - 2013",
+                    name: "Dissolved solids",
                     data: [12, 11, 14, 18, 17, 13, 13]
                 }
             ],
@@ -43,7 +48,7 @@ class LineChart extends Component {
                     curve: 'smooth'
                 },
                 title: {
-                    text: 'Average High & Low Temperature',
+                    text: 'Average measurements',
                     align: 'left'
                 },
                 grid: {
@@ -64,7 +69,7 @@ class LineChart extends Component {
                 },
                 yaxis: {
                     title: {
-                        text: 'Temperature'
+                        text: '[ppm]'
                     },
                     min: 5,
                     max: 40
@@ -86,9 +91,16 @@ class LineChart extends Component {
         return (
 
 
-
             <div id="chart">
-                <Chart options={this.state.options} series={this.state.series} type="line" height={350} />
+                <Chart
+                    options={this.state.options}
+                    series={this.state.series}
+                    type="line"
+                    rootstyle={chartStyle}
+                    top={900}
+                    width={800}
+
+                        height={400} />
             </div>
 
 
