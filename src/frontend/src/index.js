@@ -5,12 +5,13 @@ import './index.css';
 import App from './App';
 import LineChart from './LineChart';
 import MapContainer from "./mapComponent/Map"
-import SliderContainer from "./sliderComponent/slider"
+// import SliderContainer from "./sliderComponent/slider"
 import ListContainer from "./listComponent/list"
 import CardContainer from "./cardComponent/card"
 import reportWebVitals from './reportWebVitals'
 import Body from './Body.js'
-import Header from './Header.js'
+import Header from './headerComponent/Header.js'
+import SliderContainer from "./sliderComponent/slider2"
 
 ReactDOM.render(
     <React.StrictMode>
@@ -40,7 +41,7 @@ ReactDOM.render(
         </div>
         
         
-        <MapContainer />
+        
         <SliderContainer />
         <ListContainer />
         
