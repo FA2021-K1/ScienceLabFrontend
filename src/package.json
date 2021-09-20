@@ -11,13 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.13",
-    "d3-scale": "^4.0.0",
-    "date-fns": "^2.23.0",
-    "express": "^4.17.1",
-    "google-map-react": "^2.1.10",
-    "google-maps-react": "^2.0.6",
-    "prop-types": "^15.7.2",
-    "react-compound-slider": "^3.3.1"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "typescript": "^4.3.5"
