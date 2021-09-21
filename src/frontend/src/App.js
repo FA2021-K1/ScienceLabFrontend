@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 const reactStyles = {
@@ -21,7 +20,6 @@ function App() {
   return (
     <div className="App" style={reactStyles}>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>{!data ? "Loading..." : data}</p>
       </header>
     </div>

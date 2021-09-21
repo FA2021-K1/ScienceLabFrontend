@@ -3,10 +3,11 @@ import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
 import { SliderRail, Handle, Track, Tick } from "./components"; // example render components - source below
 import { subDays, startOfToday, format } from "date-fns";
 import { scaleTime } from "d3-scale";
+import { MapContainer } from "../mapComponent/Map";
 
 const sliderStyle = {
   position: "relative",
-  top: '-50px',
+  top: '-70px',
   width: "60%"
 };
 
@@ -17,31 +18,26 @@ function formatTick(ms) {
 const halfHour = 1000 * 60 * 30;
 
 class SliderContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     const today = startOfToday();
     const oneWeekAgo = subDays(today, 7);
 
     this.state = {
-      selected: today,
-      updated: today,
+      currentTime: today,
       min: oneWeekAgo,
-      max: today
+      max: today,
     };
-  }
 
-  onChange = ([ms]) => {
-    this.setState({
-      selected: new Date(ms)
-    });
-  };
+  }
 
   onUpdate = ([ms]) => {
     this.setState({
-      updated: new Date(ms)
+      currentTime: new Date(ms)
     });
   };
+
 
   renderDateTime(date, header) {
     return (
@@ -60,7 +56,7 @@ class SliderContainer extends Component {
   }
 
   render() {
-    const { min, max, selected, updated } = this.state;
+    const { min, max, currentTime } = this.state;
 
     const dateTicks = scaleTime()
       .domain([min, max])
@@ -70,19 +66,18 @@ class SliderContainer extends Component {
     return (
       <div style={{
         position: "relative",
-        top: "600px"
+        top: "580px"
       }}>
-        {this.renderDateTime(selected, "Selected")}
-        {this.renderDateTime(updated, "Updated")}
+        {this.renderDateTime(currentTime, "Selected Time")}
         <div style={{ margin: "5%", height: 120, width: "90%" }}>
+          <MapContainer time={currentTime}/>
           <Slider
             mode={1}
             step={halfHour}
             domain={[+min, +max]}
             rootStyle={sliderStyle}
             onUpdate={this.onUpdate}
-            onChange={this.onChange}
-            values={[+selected]}
+            values={[+currentTime]}
           >
             <Rail>
               {({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}
